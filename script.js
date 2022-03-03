@@ -101,9 +101,30 @@ function send()
 
     const c1 = new Customer(fname,lname,email,address,parish,phone);
 
-    let httpRequest = new XMLHttpRequest();
+    httpRequest = new XMLHttpRequest();
 
     const user = [c1.getFname(),c1.getLname(),c1.getEmail(),c1.getAddress(),c1.getParish(),c1.getPhone()];
 
-    var url = "";
+    var url = "swift.php";
+    
+    httpRequest.onreadystatechange = processName;
+    httpRequest.open('POST', url);
+    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    httpRequest.send('user=' + encodeURIComponent(user));
+
+    function processName()
+    {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) 
+        {
+            if (httpRequest.status === 200) 
+            {
+                let response = httpRequest.responseText;
+                console.log(response);
+            } 
+            else 
+            {
+            alert('There was a problem with the request.');
+            }
+        }
+    }
 }
