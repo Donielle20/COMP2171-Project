@@ -26,13 +26,14 @@ function home()
 }
 function signup()
 {
-    fetch("./SignUp.html")
+    fetch("./decision.html")
         .then(response => {
             return response.text()
         })
         .then(data => {
-        document.getElementsByClassName("content")[0].innerHTML = data;
-        document.getElementById("SubmitBtn").addEventListener("click",send);
+            document.getElementsByClassName("content")[0].innerHTML = data;
+        document.getElementsByClassName("Individual")[0].addEventListener("click",Iaccount);
+        document.getElementsByClassName("Courier")[0].addEventListener("click",Caccount);
     });
 
     document.getElementById("second").classList.add("light");
@@ -53,6 +54,29 @@ function aboutus()
 function contact()
 {
     alert("Contact");
+}
+
+function Iaccount()
+{
+    fetch("./SignUp.html")
+        .then(response => {
+            return response.text()
+        })
+        .then(data => {
+        document.getElementsByClassName("content")[0].innerHTML = data;
+        document.getElementById("SubmitBtn").addEventListener("click",send);
+    });
+}
+function Caccount()
+{
+    fetch("./courierS.html")
+        .then(response => {
+            return response.text()
+        })
+        .then(data => {
+        document.getElementsByClassName("content")[0].innerHTML = data;
+        document.getElementById("SubmitCBtn").addEventListener("click",);
+    });
 }
 
 function Customer(fname,lname,email,address,parish,phone)

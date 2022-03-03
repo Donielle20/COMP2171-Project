@@ -45,3 +45,58 @@ a{
     background-color: rgb(66, 227, 248);
     border-radius: 3px;
 }
+.decision{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 400px;
+}
+.Individual{
+    height: 540px;
+    display: flex;
+    justify-content: center;
+    line-height: 500px;
+    background-color: rgb(238, 92, 226);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
+.Courier{
+    height: 540px;
+    display: flex;
+    justify-content: center;
+    line-height: 500px;
+    background-color: rgb(223, 233, 81);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
+.Individual:hover{
+    background-color: rgb(247, 137, 237);
+}
+.Courier:hover{
+    background-color: rgb(237, 243, 146);
+}
+.read h1{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
+.form{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
+.edit{
+    width: 350px;
+    height: 30px;
+    border-radius: 5px;
+    border: 3px solid rgb(23, 196, 219);
+}
+.cbtn{
+    width: 120px;
+    height: 40px;
+    background-color: rgb(55, 55, 218);
+    color: white;
+    border-radius: 5px;
+    border-color: rgb(55, 55, 218);
+}
+.form{
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.sign h3{
+    color: red;
+}
