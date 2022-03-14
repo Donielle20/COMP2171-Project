@@ -5,6 +5,7 @@ window.onload = function()
     document.getElementsByClassName("third")[0].addEventListener("click",services);
     document.getElementsByClassName("fourth")[0].addEventListener("click",aboutus);
     document.getElementsByClassName("fifth")[0].addEventListener("click",contact);
+    document.getElementsByClassName("sixth")[0].addEventListener("click",signIn);
 };
 
 function home()
@@ -55,6 +56,17 @@ function contact()
 {
     alert("Contact");
 }
+function signIn()
+{
+    fetch("./Sign_In.html")
+        .then(response => {
+            return response.text()
+        })
+        .then(data => {
+        document.getElementsByClassName("content")[0].innerHTML = data;
+        // document.getElementById("Submit_SI_Btn").addEventListener("click",signin);
+    });
+}
 
 function Iaccount()
 {
@@ -65,6 +77,7 @@ function Iaccount()
         .then(data => {
         document.getElementsByClassName("content")[0].innerHTML = data;
         document.getElementById("SubmitBtn").addEventListener("click",send);
+        document.getElementsByClassName("sign_in_btn_1")[0].addEventListener("click",enter);
     });
 }
 function Caccount()
@@ -79,11 +92,12 @@ function Caccount()
     });
 }
 
-function Customer(fname,lname,email,address,parish,phone)
+function Customer(fname,lname,email,pass,address,parish,phone)
 {
     this.fname = fname;
     this.lname = lname;
     this.email = email;
+    this.pass = pass;
     this.address = address;
     this.parish = parish;
     this.phone = phone;
@@ -99,6 +113,10 @@ function Customer(fname,lname,email,address,parish,phone)
     this.getEmail = function()
     {
         return this.email;
+    }
+    this.getPass = function()
+    {
+        return this.pass;
     }
     this.getAddress = function()
     {
@@ -116,25 +134,32 @@ function Customer(fname,lname,email,address,parish,phone)
 
 function send()
 {
+    let status = false;
+    let state = "up";
     let fname = document.getElementsByTagName("input")[0].value;
     let lname = document.getElementsByTagName("input")[1].value;
     let email = document.getElementsByTagName("input")[2].value;
-    let address = document.getElementsByTagName("input")[3].value;
-    let parish = document.getElementsByTagName("input")[4].value;
-    let phone = document.getElementsByTagName("input")[5].value;
+    let pass = document.getElementsByTagName("input")[3].value;
+    let cpass = document.getElementsByTagName("input")[4].value;
+    let address = document.getElementsByTagName("input")[5].value;
+    let parish = document.getElementsByTagName("input")[6].value;
+    let phone = document.getElementsByTagName("input")[7].value;
 
-    const c1 = new Customer(fname,lname,email,address,parish,phone);
+    // alert(user);
+
+    const c1 = new Customer(fname,lname,email,pass,address,parish,phone);
 
     httpRequest = new XMLHttpRequest();
 
-    const user = [c1.getFname(),c1.getLname(),c1.getEmail(),c1.getAddress(),c1.getParish(),c1.getPhone()];
+    const user = [c1.getFname(),c1.getLname(),c1.getEmail(),c1.getPass(),c1.getAddress(),c1.getParish(),c1.getPhone()];
 
+    
     var url = "swift.php";
     
     httpRequest.onreadystatechange = processName;
     httpRequest.open('POST', url);
     httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    httpRequest.send('user=' + encodeURIComponent(user));
+    httpRequest.send('user=' + encodeURIComponent(user) + "&state=" + encodeURIComponent(state));
 
     function processName()
     {
@@ -151,4 +176,23 @@ function send()
             }
         }
     }
+}
+function enter()
+{
+    fetch("./Sign_In.html")
+        .then(response => {
+            return response.text()
+        })
+        .then(data => {
+        document.getElementsByClassName("content")[0].innerHTML = data;
+        document.getElementById("Submit_SI_Btn").addEventListener("click",signin);
+    });
+}
+function signin()
+{
+    let state = "up";
+    let mail = document.getElementsByTagName("input")[0].value;
+    let passw = document.getElementsByTagName("input")[1].value;
+
+    console.log(mail,passw);
 }

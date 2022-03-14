@@ -100,3 +100,9 @@ a{
 .sign h3{
     color: red;
 }
+.sname{
+    position: relative;
+    top: 30px;
+    left: 90px;
+    width: 200px;
+}
