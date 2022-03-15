@@ -13,12 +13,12 @@
             <div class = "heading">
                 <h1>Swift Team Services</h1>
                 <ul>
-                    <li class = "first_1" id="first_1"><a href="#">Home</a></li>
-                    <li class = "second_1" id="second_1"><a href="#">Package</a></li>
-                    <li class = "third_1" id="third_1"><a href="#">Services</a></li>
-                    <li class = "fourth_1" id="fourth_1"><a href="#">About Us</a></li>
-                    <li class = "fifth_1" id="fifth_1"><a href="#">Contact</a></li>
-                    <li class = "sixth_1" id="sixth_1"><a href="logout.php">Sign Out</a> </li>
+                    <li class = "first_2" id="first_2"><a href="#">Notifications</a></li>
+                    <li class = "second_2" id="second_2"><a href="#">Log Packages</a></li>
+                    <li class = "third_2" id="third_2"><a href="#">Generate Label</a></li>
+                    <li class = "fourth_2" id="fourth_2"><a href="#">Update Shipments</a></li>
+                    <li class = "fifth_2" id="fifth_2"><a href="#">Notify Customer</a></li>
+                    <li class = "sixth_2" id="sixth_2"><a href="logout.php">Sign Out</a> </li>
                     <div class = "sname">
                         <?php
                             $host = 'localhost';//Name of the host.
@@ -28,18 +28,18 @@
                         
                             $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 
-                            $stmt = $conn->query("SELECT * FROM Customers");
-                            $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+                            $rtmt = $conn->query("SELECT * FROM Admins");
+                            $answers = $rtmt->fetchAll(\PDO::FETCH_ASSOC);
 
-                            foreach ($results as $row)
+                            foreach ($answers as $rows)
                             {
-                                if($_POST['mail'] == $row['Email'] and $_POST['passw'] == $row['Pword'])
+                                if($_POST['mail'] == $rows['Email'] and $_POST['passw'] == $rows['Pword'])
                                 {
                                     session_start();
-                                    $_SESSION['firstname'] = $row['First_Name'];
-                                    $_SESSION['lastname'] = $row['Last_Name'];
+                                    $_SESSION['firstname'] = $rows['First_Name'];
+                                    $_SESSION['lastname'] = $rows['Last_Name'];
                                     echo "<h4>" . $_SESSION['firstname'] . " " . $_SESSION['lastname'] . "</h4>";
-                                }  
+                                }
                             }
                         ?> 
                     </div>   

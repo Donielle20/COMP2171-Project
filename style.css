@@ -50,7 +50,20 @@ a{
     grid-template-columns: 50% 50%;
     height: 400px;
 }
+.decision_2{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 400px;
+}
 .Individual{
+    height: 540px;
+    display: flex;
+    justify-content: center;
+    line-height: 500px;
+    background-color: rgb(238, 92, 226);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
+.Customer{
     height: 540px;
     display: flex;
     justify-content: center;
@@ -66,16 +79,36 @@ a{
     background-color: rgb(223, 233, 81);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
 }
+.Admin{
+    height: 540px;
+    display: flex;
+    justify-content: center;
+    line-height: 500px;
+    background-color: rgb(223, 233, 81);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
 .Individual:hover{
+    background-color: rgb(247, 137, 237);
+}
+.Customer:hover{
     background-color: rgb(247, 137, 237);
 }
 .Courier:hover{
     background-color: rgb(237, 243, 146);
 }
+.Admin:hover{
+    background-color: rgb(237, 243, 146);
+}
 .read h1{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
 }
+.read_2 h1{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
 .form{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
+.form_2{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
 }
 .edit{

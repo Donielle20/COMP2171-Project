@@ -58,13 +58,37 @@ function contact()
 }
 function signIn()
 {
+    fetch("./decision_2.html")
+        .then(response => {
+            return response.text()
+        })
+        .then(data => {
+        document.getElementsByClassName("content")[0].innerHTML = data;
+        document.getElementsByClassName("Customer")[0].addEventListener("click",CSaccount);
+        document.getElementsByClassName("Admin")[0].addEventListener("click",Aaccount);
+        // document.getElementById("Submit_SI_Btn").addEventListener("click",signin);
+    });
+}
+
+function CSaccount()
+{
     fetch("./Sign_In.html")
         .then(response => {
             return response.text()
         })
         .then(data => {
         document.getElementsByClassName("content")[0].innerHTML = data;
-        // document.getElementById("Submit_SI_Btn").addEventListener("click",signin);
+    });
+}
+
+function Aaccount()
+{
+    fetch("./Sign_In_2.html")
+        .then(response => {
+            return response.text()
+        })
+        .then(data => {
+        document.getElementsByClassName("content")[0].innerHTML = data;
     });
 }
 
@@ -185,7 +209,7 @@ function enter()
         })
         .then(data => {
         document.getElementsByClassName("content")[0].innerHTML = data;
-        document.getElementById("Submit_SI_Btn").addEventListener("click",signin);
+        // document.getElementById("Submit_SI_Btn").addEventListener("click",signin);
     });
 }
 function signin()
