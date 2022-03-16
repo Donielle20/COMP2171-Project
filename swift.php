@@ -27,10 +27,4 @@
             echo $num;
         }
     }
-
-    if ($_POST['state'] == "in")
-    {
-        echo "Success";
-    }
-  
 ?>

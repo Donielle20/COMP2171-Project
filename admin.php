@@ -5,7 +5,7 @@
         <title>Swift Team Services</title>
 
         <link href="style.css" type="text/css" rel="stylesheet" />
-        <script src="script.js"></script>
+        <script src="script_2.js"></script>
     </head>
 
     <body>
@@ -13,13 +13,18 @@
             <div class = "heading">
                 <h1>Swift Team Services</h1>
                 <ul>
-                    <li class = "first_2" id="first_2"><a href="#">Notifications</a></li>
-                    <li class = "second_2" id="second_2"><a href="#">Log Packages</a></li>
-                    <li class = "third_2" id="third_2"><a href="#">Generate Label</a></li>
-                    <li class = "fourth_2" id="fourth_2"><a href="#">Update Shipments</a></li>
-                    <li class = "fifth_2" id="fifth_2"><a href="#">Notify Customer</a></li>
-                    <li class = "sixth_2" id="sixth_2"><a href="logout.php">Sign Out</a> </li>
-                    <div class = "sname">
+                    <li class = "first_2" id="first_2" style = "width: 120px;"><a href="#">Notifications</a></li>
+                    <li class = "second_2" id="second_2"><a href="#">Packages</a></li>
+                    <li class = "third_2" id="third_2"><a href="#">Label</a></li>
+                    <li class = "fourth_2" id="fourth_2"><a href="#">Shipments</a></li>
+                    <div class = "five">
+                        <li class = "fifth_2" id="fifth_2"><a href="#">Notify Customer</a></li>
+                    </div>
+                    <div class = "last">
+                        <li class = "sixth_2" id="sixth_2"><a href="logout.php">Sign Out</a> </li>
+                    </div>
+                    
+                    <div class = "tname">
                         <?php
                             $host = 'localhost';//Name of the host.
                             $username = 'comp2190SA';//Username for the sql database.
@@ -33,7 +38,7 @@
 
                             foreach ($answers as $rows)
                             {
-                                if($_POST['mail'] == $rows['Email'] and $_POST['passw'] == $rows['Pword'])
+                                if($_POST['mail2'] == $rows['Email'] and $_POST['passw2'] == $rows['Pword'])
                                 {
                                     session_start();
                                     $_SESSION['firstname'] = $rows['First_Name'];

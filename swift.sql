@@ -27,6 +27,7 @@ CREATE TABLE `Packages`(
     `Package_ID` int(7) NOT NULL default 0,
     `Package_Description` varchar(100) NOT NULL default '',
     `Name_On_Package` varchar(40) NOT NULL default '',
+    `Stat` varchar(15) NOT NULL default '',
     `Date_Arrived` varchar(10) NOT NULL default '',
     `Package_Weight` int(7) NOT NULL default 0,
     `ID` int(5) NOT NULL auto_increment,
