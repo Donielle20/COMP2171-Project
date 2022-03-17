@@ -1,5 +1,23 @@
 window.onload = function()
 {
+    fetch("./home.html")
+        .then(response => {
+            return response.text()
+        })
+        .then(data => {
+        document.getElementsByClassName("content")[0].innerHTML = data;
+    
+    });
+    document.getElementById("first").classList.add("light");
+
+    if (document.getElementById("second").classList.contains("light"))
+    {
+        document.getElementById("second").classList.remove("light");
+    }
+    else if (document.getElementById("sixth").classList.contains("light"))
+    {
+        document.getElementById("sixth").classList.remove("light");
+    }
     document.getElementsByClassName("first")[0].addEventListener("click",home);
     document.getElementsByClassName("second")[0].addEventListener("click",signup);
     document.getElementsByClassName("third")[0].addEventListener("click",services);
@@ -148,12 +166,16 @@ function Caccount()
 
 function Csend()
 {
+    let name = document.getElementsByTagName("input")[0].value;
+    let addr = document.getElementsByTagName("input")[1].value;
+    let num = document.getElementsByTagName("input")[2].value;
+    let email = document.getElementsByTagName("input")[3].value;
+    let cname = document.getElementsByTagName("input")[4].value;
+    let cnum = document.getElementsByTagName("input")[5].value;
+    let brn = document.getElementsByTagName("input")[6].value;
     let pic = document.getElementsByTagName("input")[7].value;
-    let response = document.getElementById("response");
 
-    var img = new Image();
-    img.src = pic;
-    response.appendChild(img);
+    
 }
 
 function Customer(fname,lname,email,pass,address,parish,phone)
