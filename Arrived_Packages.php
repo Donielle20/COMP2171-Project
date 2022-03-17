@@ -27,18 +27,17 @@
         }
     }
 ?>
-
-<div class = "table">
-    <table>
-        <tr>
-            <th>Package ID</th>
-            <th>Package Description</th>
-            <th>Name On Package</th>
-            <th>Status</th>
-            <th>Date Arrived</th>
-            <th>Package_Weight</th>
-        </tr>
-        <tr>
+<div class = "contain1">
+    <div class = "table">
+        <table>
+            <tr>
+                <th>Package ID</th>
+                <th>Package Description</th>
+                <th>Name On Package</th>
+                <th>Status</th>
+                <th>Date Arrived</th>
+                <th>Package_Weight</th>
+            </tr>
             <?php
                 $host = 'localhost';//Name of the host.
                 $username = 'comp2190SA';//Username for the sql database.
@@ -52,14 +51,16 @@
 
                 foreach ($answers as $rows)
                 {
+                    echo "<tr>";
                     echo "<td>" . $rows['Package_ID'] . "</td>";
                     echo "<td>" . $rows['Package_Description'] . "</td>";
                     echo "<td>" . $rows['Name_On_Package'] . "</td>";
                     echo "<td>" . $rows['Stat'] . "</td>";
                     echo "<td>" . $rows['Date_Arrived'] . "</td>";
                     echo "<td>" . $rows['Package_Weight'] . "</td>";
+                    echo "</tr>";
                 }
             ?>
-        </tr>
-    </table>
+        </table>
+    </div>
 </div>

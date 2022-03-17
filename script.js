@@ -24,6 +24,10 @@ function home()
     {
         document.getElementById("second").classList.remove("light");
     }
+    else if (document.getElementById("sixth").classList.contains("light"))
+    {
+        document.getElementById("sixth").classList.remove("light");
+    }
 }
 function signup()
 {
@@ -42,6 +46,10 @@ function signup()
     if (document.getElementById("first").classList.contains("light"))
     {
         document.getElementById("first").classList.remove("light");
+    }
+    else if (document.getElementById("sixth").classList.contains("light"))
+    {
+        document.getElementById("sixth").classList.remove("light");
     }
 }
 function services()
@@ -68,6 +76,17 @@ function signIn()
         document.getElementsByClassName("Admin")[0].addEventListener("click",Aaccount);
         // document.getElementById("Submit_SI_Btn").addEventListener("click",signin);
     });
+
+    document.getElementById("sixth").classList.add("light");
+
+    if (document.getElementById("first").classList.contains("light"))
+    {
+        document.getElementById("first").classList.remove("light");
+    }
+    else if (document.getElementById("second").classList.contains("light"))
+    {
+        document.getElementById("second").classList.remove("light");
+    }
 }
 
 function CSaccount()
@@ -79,6 +98,17 @@ function CSaccount()
         .then(data => {
         document.getElementsByClassName("content")[0].innerHTML = data;
     });
+
+    document.getElementById("sixth").classList.add("light");
+
+    if (document.getElementById("first").classList.contains("light"))
+    {
+        document.getElementById("first").classList.remove("light");
+    }
+    else if (document.getElementById("second").classList.contains("light"))
+    {
+        document.getElementById("second").classList.remove("light");
+    }
 }
 
 function Aaccount()
@@ -112,8 +142,18 @@ function Caccount()
         })
         .then(data => {
         document.getElementsByClassName("content")[0].innerHTML = data;
-        document.getElementById("SubmitCBtn").addEventListener("click",);
+        document.getElementById("SubmitCBtn").addEventListener("click",Csend);
     });
+}
+
+function Csend()
+{
+    let pic = document.getElementsByTagName("input")[7].value;
+    let response = document.getElementById("response");
+
+    var img = new Image();
+    img.src = pic;
+    response.appendChild(img);
 }
 
 function Customer(fname,lname,email,pass,address,parish,phone)
@@ -192,7 +232,11 @@ function send()
             if (httpRequest.status === 200) 
             {
                 let response = httpRequest.responseText;
-                console.log(response);
+                if (response == "Success")
+                {
+                    alert("Account Creation Successfull");
+                    CSaccount();
+                }
             } 
             else 
             {
@@ -209,7 +253,17 @@ function enter()
         })
         .then(data => {
         document.getElementsByClassName("content")[0].innerHTML = data;
-        // document.getElementById("Submit_SI_Btn").addEventListener("click",signin);
+
+        document.getElementById("sixth").classList.add("light");
+
+        if (document.getElementById("first").classList.contains("light"))
+        {
+            document.getElementById("first").classList.remove("light");
+        }
+        else if (document.getElementById("second").classList.contains("light"))
+        {
+            document.getElementById("second").classList.remove("light");
+        }
     });
 }
 function signin()

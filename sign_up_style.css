@@ -24,5 +24,22 @@ input{
     grid-template-columns: 50% 50%;
 }
 h3{
-    color: red;
+    color: white;
+}
+.centre_2{
+    padding: 0.5em;
+    width: 700px;
+    border-radius: 10px;
+    border: 5px solid rgb(209, 208, 208);
+    position: relative;
+    left: 350px;
+    top: 70px;
+    background-color: rgb(23, 196, 219);
+}
+.signin{
+    position: relative;
+    left: 70px;
+}
+body{
+    background-color: rgb(209, 208, 208);
 }

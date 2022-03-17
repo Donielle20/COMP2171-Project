@@ -24,7 +24,7 @@
 
             $statement->execute(['First_Name' => $firstname,'Last_Name' => $lastname,'Email' => $email,'Pword' => $password,'Home' => $address,'Parish' => $parish,'Phone_Number' => $num]);
 
-            echo $num;
+            echo "Success";
         }
     }
 ?>
