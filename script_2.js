@@ -1,5 +1,6 @@
 window.onload = function()
 {
+    log_Package()
     document.getElementsByClassName("second_2")[0].addEventListener("click",log_Package);
 }
 
@@ -58,7 +59,7 @@ function submit()
                 let answer = document.getElementsByClassName("content")[0].innerHTML = data;
                 console.log(response);
                 answer.innerHTML = response;
-
+                
             } 
             else 
             {
@@ -66,6 +67,7 @@ function submit()
             }
         }
     }
+    view()
 }
 
 function view()

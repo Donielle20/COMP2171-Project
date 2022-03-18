@@ -27,4 +27,22 @@
             echo "Success";
         }
     }
+    if ($_POST['state'] == "down")
+    {
+        $info = explode(",",$_POST['cuser']);
+        $business_name = $info[0];
+        $business_address = $info[1];
+        $business_number = $info[2];
+        $email = $info[3];
+        $contact_name = $info[4];
+        $contact_num = $info[5];
+        $business_regis_num = $info[6];
+
+        $state = $conn->prepare('INSERT INTO Courier (Business_Name,Business_Address,Business_Number,Email,Contact_Name,Contact_Number,Registration_Number)
+        VALUES (:Business_Name, :Business_Address, :Business_Number, :Email, :Contact_Name, :Contact_Number, :Registration_Number)');
+
+        $state->execute(['Business_Name' => $business_name,'Business_Address' => $business_address,'Business_Number' => $business_number,'Email' => $email,'Contact_Name' => $contact_name,'Contact_Number' => $contact_num,'Registration_Number' => $business_regis_num]);
+
+        echo "Success";
+    }
 ?>

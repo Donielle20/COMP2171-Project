@@ -1,23 +1,24 @@
 window.onload = function()
 {
-    fetch("./home.html")
-        .then(response => {
-            return response.text()
-        })
-        .then(data => {
-        document.getElementsByClassName("content")[0].innerHTML = data;
+    signup()
+    // fetch("./home.html")
+    //     .then(response => {
+    //         return response.text()
+    //     })
+    //     .then(data => {
+    //     document.getElementsByClassName("content")[0].innerHTML = data;
     
-    });
-    document.getElementById("first").classList.add("light");
+    // });
+    // document.getElementById("first").classList.add("light");
 
-    if (document.getElementById("second").classList.contains("light"))
-    {
-        document.getElementById("second").classList.remove("light");
-    }
-    else if (document.getElementById("sixth").classList.contains("light"))
-    {
-        document.getElementById("sixth").classList.remove("light");
-    }
+    // if (document.getElementById("second").classList.contains("light"))
+    // {
+    //     document.getElementById("second").classList.remove("light");
+    // }
+    // else if (document.getElementById("sixth").classList.contains("light"))
+    // {
+    //     document.getElementById("sixth").classList.remove("light");
+    // }
     document.getElementsByClassName("first")[0].addEventListener("click",home);
     document.getElementsByClassName("second")[0].addEventListener("click",signup);
     document.getElementsByClassName("third")[0].addEventListener("click",services);
@@ -49,15 +50,16 @@ function home()
 }
 function signup()
 {
-    fetch("./decision.html")
-        .then(response => {
-            return response.text()
-        })
-        .then(data => {
-            document.getElementsByClassName("content")[0].innerHTML = data;
-        document.getElementsByClassName("Individual")[0].addEventListener("click",Iaccount);
-        document.getElementsByClassName("Courier")[0].addEventListener("click",Caccount);
-    });
+    Iaccount()
+    // fetch("./decision.html")
+    //     .then(response => {
+    //         return response.text()
+    //     })
+    //     .then(data => {
+    //         document.getElementsByClassName("content")[0].innerHTML = data;
+    //     document.getElementsByClassName("Individual")[0].addEventListener("click",Iaccount);
+    //     document.getElementsByClassName("Courier")[0].addEventListener("click",Caccount);
+    // });
 
     document.getElementById("second").classList.add("light");
 
@@ -166,6 +168,7 @@ function Caccount()
 
 function Csend()
 {
+    let state = "down";
     let name = document.getElementsByTagName("input")[0].value;
     let addr = document.getElementsByTagName("input")[1].value;
     let num = document.getElementsByTagName("input")[2].value;
@@ -173,9 +176,37 @@ function Csend()
     let cname = document.getElementsByTagName("input")[4].value;
     let cnum = document.getElementsByTagName("input")[5].value;
     let brn = document.getElementsByTagName("input")[6].value;
-    let pic = document.getElementsByTagName("input")[7].value;
 
+    const cuser = [name,addr,num,email,cname,cnum,brn];
+
+    httpRequest = new XMLHttpRequest();
+
+    var url = "swift.php";
     
+    httpRequest.onreadystatechange = processName;
+    httpRequest.open('POST', url);
+    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    httpRequest.send('cuser=' + encodeURIComponent(cuser) + "&state=" + encodeURIComponent(state));
+
+    function processName()
+    {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) 
+        {
+            if (httpRequest.status === 200) 
+            {
+                let response = httpRequest.responseText;
+                if (response == "Success")
+                {
+                    alert("Courier Account Creation Successfull");
+                    CSaccount()
+                }
+            } 
+            else 
+            {
+            alert('There was a problem with the request.');
+            }
+        }
+    }
 }
 
 function Customer(fname,lname,email,pass,address,parish,phone)
