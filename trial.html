@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <title>Send Mail</title>
+  <script src=
+    "https://smtpjs.com/v3/smtp.js">
+  </script>
+
+  <style>
+    table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+      
+    td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+
+    tr:nth-child(even) {
+    background-color: #dddddd;
+    }
+    tr:nth-child(odd){
+        background-color: rgb(140, 140, 141);
+    }
+    th{
+        color: white;
+    }
+    .table{
+    box-shadow: 5px 10px 8px #888888;
+    }
+    .Ebtn{
+    position: relative;
+    left: 550px;
+    padding: 0.5em;
+    background-color: rgb(55, 55, 218);
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 60px;
+    margin-top: 38px;
+    outline: 0;
+    text-align: center;
+    width: 120px;
+    }
+  </style>
+  
+  <div class="show_results">
+
+  </div>
+
+  <script type="text/javascript">
+  fetch("./temp.php")
+    .then(response => {
+        return response.text()
+    })
+    .then(data => {
+    document.getElementsByClassName("show_results")[0].innerHTML = data;
+    });
+  
+  function sendEmail()
+  {
+    // let name = [];
+
+    // for (let i = 0; i < 4; i++) 
+    // {
+    //   let name = document.getElementsByTagName("input")[0].value;
+    // }
+    // 
+    httpRequest = new XMLHttpRequest();
+
+    const trial = "HelloWorld";
+
+    var url = "notify.php";
+
+    httpRequest.onreadystatechange = processName;
+    httpRequest.open('POST', url);
+    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    httpRequest.send('name=' + encodeURIComponent(name));
+
+    function processName()
+    {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) 
+        {
+            if (httpRequest.status === 200) 
+            {
+                var response = httpRequest.responseText;
+                // let answer = document.getElementsByClassName("content")[0].innerHTML = data;
+                var lst = "";
+                for (let i = 0; i < response.length; i++) 
+                {
+                  if (response[i] != '"')
+                  {
+                    lst = lst + response[i];
+                  }
+                }
+                lst =lst.split(" ");
+                lst.shift();
+                console.log(lst);
+
+                for (let i = 0; i < lst.length; i++) 
+                {
+                  Email.send(
+                  {
+                    Host: "smtp.gmail.com",
+                    Username: "swiftteamservices22@gmail.com",
+                    Password: "Applejuice2022",
+                    To: lst[i],
+                    From: "swiftteamservices22@gmail.com",
+                    Subject: "Sending Email using javascript",
+                    Body: "Well that was easy!!",
+                  })
+                  .then(function (message) 
+                  {
+                    console.log("mail sent successfully");
+                  });
+                }
+            } 
+            else 
+            {
+            alert('There was a problem with the request.');
+            }
+        }
+    }
+  }
+  </script>
+</head>
+<br>
+<br>
+<br>
+<body>
+  <form method="post">
+    <input class = "Ebtn" type="button" value="Send Email" 
+        onclick="sendEmail()" />
+  </form>
+</body>
+  
+</html>

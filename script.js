@@ -86,16 +86,18 @@ function contact()
 }
 function signIn()
 {
-    fetch("./decision_2.html")
-        .then(response => {
-            return response.text()
-        })
-        .then(data => {
-        document.getElementsByClassName("content")[0].innerHTML = data;
-        document.getElementsByClassName("Customer")[0].addEventListener("click",CSaccount);
-        document.getElementsByClassName("Admin")[0].addEventListener("click",Aaccount);
-        // document.getElementById("Submit_SI_Btn").addEventListener("click",signin);
-    });
+    if (document.getElementById("drop_menu").classList.contains("drop_menu1"))
+    {
+        document.getElementById("drop_menu").classList.remove("drop_menu1");
+        document.getElementById("drop_menu").classList.add("drop_menu2");
+    }
+    else
+    {
+        document.getElementById("drop_menu").classList.remove("drop_menu2");
+        document.getElementById("drop_menu").classList.add("drop_menu1");
+    }
+    document.getElementsByClassName("cus")[0].addEventListener("click",CSaccount);
+    document.getElementsByClassName("adm")[0].addEventListener("click",Aaccount);
 
     document.getElementById("sixth").classList.add("light");
 

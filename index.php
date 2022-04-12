@@ -5,7 +5,7 @@
         <title>Swift Team Services</title>
 
         <link href="style.css" type="text/css" rel="stylesheet" />
-        <script src="script.js"></script>
+        <script src="script_3.js"></script>
     </head>
 
     <body>
@@ -47,7 +47,7 @@
             </div>
         </header>
         <main>
-            <div class = "content">
+            <div class = "content_3">
                 
             </div>
         </main>

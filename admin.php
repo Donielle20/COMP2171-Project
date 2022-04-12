@@ -13,14 +13,25 @@
             <div class = "heading">
                 <h1>Swift Team Services</h1>
                 <ul>
-                    <li class = "first_2" id="first_2" style = "width: 120px;"><a href="#">Notifications</a></li>
-                    <li class = "second_2" id="second_2"><a href="#">Packages</a></li>
+                    <div class = "five">
+                        <li class = "second_2" id="second_2"><a href="#">Log Package</a></li>
+
+                        <div class = "drop1" id = "down">
+                            <ul>
+                                <li class="trial1"><a href = "#">Package Entry</a></li>
+                                <li class="trial2"><a href = "#">View Package</a></li>
+                            </ul>
+                        </div>
+                    </div>
                     <li class = "third_2" id="third_2"><a href="#">Label</a></li>
                     <li class = "fourth_2" id="fourth_2"><a href="#">Shipments</a></li>
                     <div class = "five">
                         <li class = "fifth_2" id="fifth_2"><a href="#">Notify Customer</a></li>
                     </div>
-                    <div class = "last">
+                    <div class = "five">
+                        <li class = "first_2" id="first_2"><a href="#">Clear Package</a></li>
+                    </div>
+                    <div>
                         <li class = "sixth_2" id="sixth_2"><a href="logout.php">Sign Out</a> </li>
                     </div>
                     

@@ -1,4 +1,5 @@
 .Instruc h1{
+    color: black;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
 }
 label{
@@ -8,15 +9,21 @@ input{
     width: 350px;
     height: 30px;
     border-radius: 5px;
-    border: 3px solid rgb(32, 53, 168);
+    border: 1px solid rgb(149, 149, 150);
 }
 .btn{
-    width: 120px;
-    height: 40px;
     background-color: rgb(55, 55, 218);
-    color: white;
-    border-radius: 5px;
-    border-color: rgb(55, 55, 218);
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    outline: 0;
+    text-align: center;
+    width: 360px;
 }
 .fields{
     padding: 1em;
@@ -24,22 +31,39 @@ input{
     grid-template-columns: 50% 50%;
 }
 h3{
-    color: white;
+    color: black;
 }
 .centre_2{
     padding: 0.5em;
     width: 700px;
     border-radius: 10px;
-    border: 5px solid rgb(209, 208, 208);
+    border: 3px solid rgb(209, 208, 208);
     position: relative;
     left: 280px;
     top: 70px;
-    background-color: rgb(32, 53, 168);
+    background-color: white;
+    box-shadow: rgba(60, 66, 87, 0.12) 2px 10px 14px 2px, rgba(0, 0, 0, 0.12) 2px 3px 6px 2px;
 }
 .signin{
     position: relative;
     left: 70px;
 }
 body{
-    background-color: rgb(158, 158, 156);
+    background-color: white;
+}
+.sign_in_btn_1{
+    background-color: rgb(55, 55, 218);
+    border-radius: 5px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 30px;
+    margin-top: 38px;
+    outline: 0;
+    text-align: center;
+    width: 100px;
+    position: relative;
+    top: -20px;
 }
