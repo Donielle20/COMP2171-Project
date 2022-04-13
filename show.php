@@ -6,21 +6,31 @@
 
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 
-    $rtmt = $conn->query("SELECT * FROM Customers");
+    $rtmt = $conn->query("SELECT * FROM Packages");
     $answers = $rtmt->fetchAll(\PDO::FETCH_ASSOC);
     $count = 0;
     $id = array(0);
     $desc = array(0);
-    $name = array(0);
+    $name = "";
     $stat = array(0);
     $date = array(0);
     $weight = array(0);
-    $email = "";
 
-    // echo $_POST['temp'];
     foreach ($answers as $rows)
     {
-        $email = $email . " " . $rows['Email'];
+        if ($rows['Stat'] == "updated")
+        {
+            if ($name == "")
+            {
+                $info = explode(" ",$rows['Name_On_Package']);
+                $name = $name . $info[0];
+            }
+            else
+            {
+                $info = explode(" ",$rows['Name_On_Package']);
+                $name = $name . "," . $info[0];
+            }   
+        }
     }
-    echo json_encode($email);
+    echo $name;
 ?>

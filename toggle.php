@@ -16,12 +16,4 @@
     $vtmt->execute();
 
     echo "SUCCES";
-
-    // foreach ($answers as $rows)
-    // {
-    //     if ($rows['Package_ID'] == $_POST['temp'])
-    //     {
-    //         echo "YES";
-    //     }
-    // }
 ?>

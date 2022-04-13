@@ -39,7 +39,7 @@
 
                 foreach ($answers as $rows)
                 {
-                    if ($rows['Stat'] == "arrived")
+                    if ($rows['Stat'] == "labeled")
                     {
                         echo "<tr>";
                         echo "<td>" . $rows['Package_ID'] . "</td>";
@@ -48,7 +48,7 @@
                         echo "<td>" . $rows['Stat'] . "</td>";
                         echo "<td>" . $rows['Date_Arrived'] . "</td>";
                         echo "<td>" . $rows['Package_Weight'] . "</td>";
-                        echo "<td>" . "<input style='width: 100px;'>" . "</td>";
+                        echo "<td>" . "$<input style='width: 100px;'>" . "</td>";
                         echo "<td>" . "<button>View</button>" . "</td>";
                         echo "</tr>";
                         array_push($id,$rows['Package_ID']);
@@ -142,8 +142,8 @@
             if (weight[i] >= 10)
             {
                 total = 27 + parseInt(num);
-                document.getElementsByClassName("result")[0].innerHTML = "<h2 style = 'background-color:rgb(73, 72, 72); padding:1em; color: white;'>" + "Package ID: " + id[i] + "<br>" + "Description: " + des[i] + "<br>" + "Date Arrived: " + date[i] + "<br>" + "Weight: " + weight[i] + " lbs" + "<br>" + "Total: $" + total + "</h2>";
-                
+                document.getElementsByClassName("result")[0].innerHTML = "<h2 style = 'background-color:rgb(73, 72, 72); padding:1em; color: white;'>" + "Package ID: " + id[i] + "<br>" + "Description: " + des[i] + "<br>" + "Date Arrived: " + date[i] + "<br>" + "Weight: " + weight[i] + " lbs" + "<br>" + "Total: USD$" + total + "<br>" + "JMD$" + total * 154.62 + "</h2>";
+
                 httpRequest = new XMLHttpRequest();
 
                 var newID = id[i];
@@ -163,7 +163,7 @@
                         {
                             var response = httpRequest.responseText;
                             // let answer = document.getElementsByClassName("content")[0].innerHTML = data;
-                            alert(response);
+                            console.log(response);
                         } 
                         else 
                         {

@@ -16,5 +16,8 @@
     $vtmt = $conn->prepare("UPDATE Packages SET Price = $price  WHERE Package_ID = $id");
     $vtmt->execute();
 
+    $stmt = $conn->prepare("UPDATE Packages SET Stat = 'updated'  WHERE Package_ID = $id");
+    $stmt->execute();
+
     echo "SUCCES";
 ?>

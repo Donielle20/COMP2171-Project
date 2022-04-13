@@ -1,4 +1,13 @@
-<div class = "table">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Swift Team Services</title>
+
+        <link href="style.css" type="text/css" rel="stylesheet" />
+    </head>
+</html>
+<div class = "table3">
     <table>
         <tr>
             <th>Package ID</th>
@@ -7,6 +16,7 @@
             <th>Status</th>
             <th>Date Arrived</th>
             <th>Package_Weight</th>
+            <th>Charge</th>
             <th>Toggle</th>
         </tr>
         <?php
@@ -21,11 +31,13 @@
             $answers = $rtmt->fetchAll(\PDO::FETCH_ASSOC);
             $count = 0;
             $id = array();
+            $price;
 
             foreach ($answers as $rows)
             {
-                if ($rows['Stat'] == "labeled")
+                if ($rows['Stat'] == "updated")
                 {
+                    $price = 154.62 * floatval($rows['Price']);
                     echo "<tr>";
                     echo "<td>" . $rows['Package_ID'] . "</td>";
                     echo "<td>" . $rows['Package_Description'] . "</td>";
@@ -33,12 +45,26 @@
                     echo "<td>" . $rows['Stat'] . "</td>";
                     echo "<td>" . $rows['Date_Arrived'] . "</td>";
                     echo "<td>" . $rows['Package_Weight'] . "</td>";
+                    echo "<td>" . "$" . $price . "</td>";
                     echo "<td>" . "<button>Clear</button>" . "</td>";
                     echo "</tr>";
                     array_push($id,$rows['Package_ID']);
                     $count = $count + 1;
                 }
             }
+            if ($count == 0)
+                {
+                    echo "<tr>";
+                    echo "<td>" . "NO" . "</td>";
+                    echo "<td>" . "NEW" . "</td>";
+                    echo "<td>" . "PACKAGES" . "</td>";
+                    echo "<td>" . "HAVE" . "</td>";
+                    echo "<td>" . "BEEN" . "</td>";
+                    echo "<td>" . "ADDED" . "</td>";
+                    echo "<td>" . "$$$$$" . "</td>";
+                    echo "<td>" . "XXXXX" . "</td>";
+                    echo "</tr>";
+                }
         ?>
     </table>
 </div>

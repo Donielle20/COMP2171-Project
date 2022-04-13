@@ -16,12 +16,9 @@
 
         $answers = $rtmt->fetchAll(\PDO::FETCH_ASSOC);
 
-        $vtmt = $conn->prepare("UPDATE Packages SET Stat = 'labeled' WHERE Stat = 'arrived'");
-        $vtmt->execute();
-
         foreach ($answers as $rows)
         {
-            if ($rows['Stat'] == "labeled")
+            if ($rows['Stat'] == "arrived")
             {
                 ?>
                 <div class="print">
@@ -56,5 +53,17 @@
                 <?php
             }
         }
+
+        $vtmt = $conn->prepare("UPDATE Packages SET Stat = 'labeled' WHERE Stat = 'arrived'");
+        $vtmt->execute();
     ?>
+    <div class="popup2" id="pop2">
+        <div class="div_label_h2">
+            <h2 class="label_h2">Labels are being printed</h2> 
+        </div>
+        <hr>
+        <div class="ok_button">
+            <button class = "ok">OK</button>
+        </div> 
+    </div>
 </div>

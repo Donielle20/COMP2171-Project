@@ -87,7 +87,16 @@ function label()
 }
 function print()
 {
-    alert("Print Successful");
+    // alert("test");
+    document.getElementById("pop2").classList.remove("popup2");
+    document.getElementById("pop2").classList.add("popup");
+
+    document.getElementsByClassName("ok")[0].addEventListener("click",ok);
+}
+function ok()
+{
+    document.getElementById("pop2").classList.remove("popup");
+    document.getElementById("pop2").classList.add("popup2");
     label()
 }
 function test()

@@ -209,6 +209,11 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
+.table3{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
   
 td, th {
 border: 1px solid #dddddd;
@@ -524,4 +529,41 @@ hr{
     position: relative;
     top: 8px;
     width: 128px;
+}
+.popup2{
+    display: none;
+}
+.popup{
+    border: 3px solid rgb(180, 179, 179);
+    border-radius: 5px;
+    height: 150px;
+    width: 300px;
+    position: relative;
+    left: 480px;
+    top: -400px;
+    padding: 1em;
+    background-color: rgb(218, 216, 216);
+    z-index: 1;
+}
+.label_h2{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    position: relative;
+    left: 15px;
+}
+.ok{
+    position: relative;
+    left: 120px;
+    top: 10px;
+    background-color: rgb(55, 55, 218);
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 30px;
+    margin-top: 38px;
+    outline: 0;
+    text-align: center;
+    width: 60px;
 }

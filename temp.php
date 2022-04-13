@@ -38,6 +38,7 @@
                 echo "<td>" . $rows['Date_Arrived'] . "</td>";
                 echo "<td>" . $rows['Package_Weight'] . "</td>";
                 echo "</tr>";
+                array_push($name,$rows['Name_On_Package']);
             }
         ?>
     </table>
